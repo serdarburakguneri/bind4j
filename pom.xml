@@ -29,6 +29,7 @@
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+    <junit.version>5.11.2</junit.version>
     <spotless.maven.plugin.version>2.43.0</spotless.maven.plugin.version>
     <google.java.format.version>1.17.0</google.java.format.version>
   </properties>
@@ -36,6 +37,11 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>

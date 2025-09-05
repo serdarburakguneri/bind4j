@@ -1,7 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.bind4j</groupId><artifactId>bind4j-parent</artifactId><version>0.1.0-SNAPSHOT</version>
+    <groupId>io.bind4j</groupId>
+    <artifactId>bind4j-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
   </parent>
   <artifactId>bind4j-annotations</artifactId>
 </project>
