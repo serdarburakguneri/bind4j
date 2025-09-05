@@ -29,7 +29,7 @@ public interface Interceptor<C, R> {
   }
 
   /** Create a new chain from interceptors and a final handler. */
-  static <C, R> Chain<C, R> newChain(
+  static <C, R> Chain<C, R> create(
       C context, List<Interceptor<C, R>> interceptors, FinalHandler<C, R> finalHandler) {
     Objects.requireNonNull(finalHandler, "finalHandler");
     var safeList = List.copyOf(interceptors == null ? List.of() : interceptors);

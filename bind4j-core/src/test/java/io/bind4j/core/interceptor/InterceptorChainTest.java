@@ -34,7 +34,7 @@ class InterceptorChainTest {
           return "ok";
         };
 
-    var chain = Interceptor.newChain("start", List.of(i1, i2), terminal);
+    var chain = Interceptor.create("start", List.of(i1, i2), terminal);
     String result = chain.proceed("start");
 
     assertEquals("ok|i2|i1", result);
@@ -55,7 +55,7 @@ class InterceptorChainTest {
         ctx -> {
           throw new IllegalStateException("boom");
         };
-    var chain = Interceptor.newChain("c", List.of(i), terminal);
+    var chain = Interceptor.create("c", List.of(i), terminal);
     var ex = assertThrows(IllegalStateException.class, () -> chain.proceed("c"));
     assertEquals("boom", ex.getMessage());
   }
