@@ -15,6 +15,9 @@
     <module>bind4j-security</module>
     <module>bind4j-observability</module>
     <module>bind4j-resilience</module>
+    <module>bind4j-http-spi</module>
+    <module>bind4j-http-undertow</module>
+    <module>examples/example-purejava</module>
   </modules>
 
   <dependencyManagement>
