@@ -13,6 +13,7 @@
     <module>bind4j-core</module>
     <module>bind4j-messaging-spi</module>
     <module>bind4j-security</module>
+    <module>bind4j-observability</module>
   </modules>
 
   <dependencyManagement>
@@ -33,6 +34,7 @@
     <junit.version>5.11.2</junit.version>
     <spotless.maven.plugin.version>2.43.0</spotless.maven.plugin.version>
     <google.java.format.version>1.17.0</google.java.format.version>
+    <slf4j.version>2.0.13</slf4j.version>
   </properties>
 
   <build>
