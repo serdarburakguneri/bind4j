@@ -13,17 +13,17 @@ public final class HttpResponses {
   private HttpResponses() {}
 
   public static HttpResponse ok(String text) {
-    return simple(HttpConstants.StatusCodes.OK, HttpConstants.ContentTypes.TEXT_PLAIN_UTF8, text);
+    return simple(HttpStatus.OK, MediaType.TEXT_PLAIN_UTF8, text);
   }
 
   public static HttpResponse json(int status, String json) {
-    return simple(status, HttpConstants.ContentTypes.APPLICATION_JSON_UTF8, json);
+    return simple(status, MediaType.APPLICATION_JSON_UTF8, json);
   }
 
   public static HttpResponse simple(int status, String contentType, String body) {
     return new HttpResponse(
         status,
-        Map.of(HttpConstants.Headers.CONTENT_TYPE, List.of(contentType)),
+        Map.of(HttpHeaders.CONTENT_TYPE, List.of(contentType)),
         body == null ? new byte[0] : body.getBytes(StandardCharsets.UTF_8));
   }
 }

@@ -1,11 +1,10 @@
 package io.bind4j.http.undertow;
 
-import io.bind4j.http.spi.HttpConstants;
-import io.bind4j.http.spi.HttpErrorMessages;
 import io.bind4j.http.spi.HttpHandler;
 import io.bind4j.http.spi.HttpRequest;
 import io.bind4j.http.spi.HttpResponse;
 import io.bind4j.http.spi.HttpServerAdapter;
+import io.bind4j.http.spi.HttpStatus;
 import io.undertow.Undertow;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.BlockingHandler;
@@ -56,8 +55,8 @@ public final class UndertowServerAdapter implements HttpServerAdapter {
     var methodRoutes = routes.get(method);
     var handler = methodRoutes != null ? methodRoutes.get(path) : null;
     if (handler == null) {
-      exchange.setStatusCode(HttpConstants.StatusCodes.NOT_FOUND);
-      exchange.getResponseSender().send(HttpErrorMessages.Messages.NOT_FOUND);
+      exchange.setStatusCode(HttpStatus.NOT_FOUND);
+      exchange.getResponseSender().send(HttpStatus.getStatusText(HttpStatus.NOT_FOUND));
       return;
     }
     try {
@@ -66,8 +65,8 @@ public final class UndertowServerAdapter implements HttpServerAdapter {
       UndertowHttpConverter.applyResponse(exchange, res);
     } catch (Exception e) {
       log.error("Handler error", e);
-      exchange.setStatusCode(HttpConstants.StatusCodes.INTERNAL_SERVER_ERROR);
-      exchange.getResponseSender().send(HttpErrorMessages.Messages.INTERNAL_SERVER_ERROR);
+      exchange.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+      exchange.getResponseSender().send(HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR));
     }
   }
 }
