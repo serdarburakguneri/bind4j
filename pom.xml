@@ -12,6 +12,7 @@
     <module>bind4j-annotations</module>
     <module>bind4j-core</module>
     <module>bind4j-messaging-spi</module>
+    <module>bind4j-security</module>
   </modules>
 
   <dependencyManagement>
